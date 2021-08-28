@@ -1,0 +1,20 @@
+{% extends 'baseLayout.html'%}
+{% block title %} Liste {% endblock %}
+{% block content %} 
+<h3> Tâches en cours ou terminées </h3>
+<ul>
+    {% for task in tasks %}
+    <li>
+        <h3> 
+         {% if task.closed %}
+         <span class="closed"> {{task.name}}</span>
+         {% else %}
+         {{task.name}}
+         {% endif %}
+         <h4>{{ task.description}}</h4>
+         <p>Date de debut : {{task.schedule_date}}</p>
+        </h3>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
